@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Getting Started: Serving Web Content</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+
+<body>
+
+	<div class="container">
+		<h1 style="text-align: center;">Listado de Personal</h1>
+		<table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+       <th scope="col">codigo</th>
+        <th scope="col">nombre</th>
+        <th scope="col">apellido</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Correo</th>
+        <th scope="col">DNI</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Direcion</th>
+        <th scope="col">Roll</th>
+    
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="p : ${lstPer}">
+	       <td th:text="${p.idpersonal}"></td>
+	        <td th:text="${p.nombreper}"></td>
+	        <td th:text="${p.apellidoper}"></td>
+	        <td th:text="${p.fechaper}"></td>
+	        <td th:text="${p.emailper}"></td>
+	        <td th:text="${p.dniper}"></td>
+	        <td th:text="${p.telefonoper}"></td>
+	        <td th:text="${p.direccionper}"></td>
+	        <td th:text="${p.idrol}"></td>
+	        
+	        
+		      <td>
+			      <form action="/personal/editar" method="post">
+			       <input type="hidden" name="idpersonal" th:value="${p.idpersonal}">
+			       <button type="submit" class="btn bnt-info">Eliminar</button>
+			       </form>
+		      </td>
+   
+      </tr>
+      
+    </tbody>
+  </table>
+	</div>
+
+</body>
+
+</html>

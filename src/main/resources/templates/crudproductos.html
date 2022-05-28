@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:replace="principal::head">
+<link rel="stylesheet"  href="/css/main.css" >
+</head>
+
+<div id="contenedor">
+
+		<header th:replace="principal::header"> </header>
+		<main>
+			<nav th:replace="principal::nav"></nav>
+			<section style="width: 65%; float: left;">
+				
+			<h1>Mantenimiento de Productos</h1>
+
+		
+		<form class="row g-3" action="/producto/grabar" method="POST" th:object="${producto}">
+			<div class="col-md-4">
+				<label for="validationDefault01" class="form-label">Codigo del Producto</label>
+				<input type="text" th:field="*{idproducto}" class="form-control" id="validationDefault01"
+					placeholder="Ingrese Codigo" required>
+			</div>
+			<div class="col-md-4">
+				<label for="validationDefault02" class="form-label">Nonbres</label>
+				<input type="text" th:field="*{nombrepro}" class="form-control" id="validationDefault02"
+					placeholder="Ingrese nombre " required>
+			</div>
+
+			<div class="col-md-4">
+				<label for="validationDefault03" class="form-label">Descripcion</label>
+				<input type="text" th:field="*{descripcionpro}" min="1" class="form-control" id="validationDefault03"
+				placeholder="Ingrese Descripcion " required>
+					
+			</div>
+			
+			<div class="col-md-4">
+				<label for="validationDefault04" class="form-label">Categoria</label>
+				<select class="form-select" th:field="*{idcategoria}" id="validationDefault04" required>
+					<option selected disabled th:value="-1" th:text="Seleccione"></option>
+					
+					 <option th:each="c : ${lstCa}"
+					 th:value="${c.idcategoria}" 
+					 th:text="${c.descripcion}"
+					 ></option> 
+			
+					
+				</select>
+				</div> 
+			
+			
+			<div class="col-md-5">
+				<label for="validationDefault03" class="form-label">Stock</label>
+				<input type="number" th:field="*{stockpro}"   min="1" class="form-control" id="validationDefault03"
+					placeholder="0" required>
+			</div>
+			
+				<div class="col-md-6">
+				<label for="validationDefault03" class="form-label">Precio</label>
+				<input type="number" th:field="*{preciopro}" step="0.01"  min="1" class="form-control" id="validationDefault03"
+					placeholder="0.00" required>
+			</div>
+			
+			
+			<div class="col-12">
+				<button class="btn btn-primary" type="submit" style="background-color: silver;">Registrar</button>
+				<a  href="/producto/listar" class="btn btn-primary" style="background-color: silver;" >Listado</a> 
+				<a  href="/graficofunko" class="btn btn-primary" style="background-color: silver;" >Grafico</a> 
+	
+			</div>
+
+		</form>	
+			</section>
+
+
+
+		</main>
+		<footer th:replace="principal::footer"> </footer>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f6f5f7;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-image: url("/img/banner.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+h1{
+    text-align: center; 
+    margin-top: -150px;
+}
+
+h3{
+   text-align: center;
+    font-weight: bold;
+}
+
+a{
+    font-size: 150%;
+    color:black; 
+}
+
+.conector-social {
+	width: 100%;
+	display: block;
+	margin: 0px 10px;
+	text-align: center;
+}
+
+.conector-social h5 {
+	margin-top: 45px;
+    margin-bottom: 20px;
+}
+
+.conector-social ul li {
+    display: inline-block;
+    margin: 0 2px;
+}
+
+.conector-social ul li a img {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background-size: 300px;
+    color: #fff;
+    line-height: 2.4em;
+    border-radius: 50%;
+    text-align: center;
+	margin-bottom: 20px;
+} 
+.conector-social ul li a:hover {
+    color: #ff5722;
+    border-color: #ff5722;
+}
+
+
+

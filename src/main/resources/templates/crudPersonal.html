@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:replace="principal::head">
+</head>
+
+
+
+<body>
+	<div id="container">
+
+		<header th:replace="principal::header"> </header>
+		<main>
+			<nav th:replace="principal::nav"></nav>
+			<section style="width: 65%; float: left;">
+				
+				<h1>Mantenimiento de Personal</h1>
+		<form class="row g-3" action="/personal/grabar" method="POST" th:object="${personal}">
+			<div class="col-md-4">
+				<label for="validationDefault01" class="form-label">Codigo del Personal</label>
+				<input type="text" th:field="*{idpersonal}" class="form-control" id="validationDefault01"
+					placeholder="Ingrese Codigo" required>
+			</div>
+			<div class="col-md-4">
+				<label for="validationDefault02" class="form-label">Nonbres</label>
+				<input type="text" th:field="*{nombreper}" class="form-control" id="validationDefault02"
+					placeholder="Ingrese nombre " required>
+			</div>
+
+			<div class="col-md-4">
+				<label for="validationDefault03" class="form-label">Apellido</label>
+				<input type="text" th:field="*{apellidoper}" min="1" class="form-control" id="validationDefault03"
+				placeholder="Ingrese apellido " required>
+					
+			</div>
+			
+			<div class="col-md-4">
+				<label for="validationDefault03" class="form-label">Fecha</label>
+				<input type="text" th:field="*{fechaper}" min="1" class="form-control" id="validationDefault03"
+				placeholder="Ingrese fecha " required>
+					
+			</div>
+			
+				<div class="col-md-4">
+				<label for="validationDefault03" class="form-label">Email</label>
+				<input type="text" th:field="*{emailper}" min="1" class="form-control" id="validationDefault03"
+				placeholder="Ingrese email " required>
+					
+			</div>
+			
+	
+			
+				<div class="col-md-4">
+				<label for="validationDefault03" class="form-label">DNI</label>
+				<input type="text" th:field="*{dniper}" min="1" class="form-control" id="validationDefault03"
+				placeholder="Ingrese dni" required>
+					
+			</div>
+			
+			
+				<div class="col-md-4">
+				<label for="validationDefault03" class="form-label">Telefono</label>
+				<input type="text" th:field="*{telefonoper}" min="1" class="form-control" id="validationDefault03"
+				placeholder="Ingrese telefono " required>
+					
+			</div>
+			
+			<div class="col-md-4">
+				<label for="validationDefault03" class="form-label">Direccion</label>
+				<input type="text" th:field="*{direccionper}" min="1" class="form-control" id="validationDefault03"
+				placeholder="Ingrese direccion " required>
+					
+			</div>
+			
+			<div class="col-md-4">
+				<label for="validationDefault04" class="form-label">Rol</label>
+				<select class="form-select" th:field="*{idrol}" id="validationDefault04" required>
+					<option selected disabled th:value="-1" th:text="Seleccione"></option>
+					
+					 <option th:each="r : ${lstro}"
+					 th:value="${r.idrol}" 
+					 th:text="${r.nombrerol}"
+					 ></option> 
+			
+				</select>
+				</div> 
+			
+			
+			
+			<div class="col-12">
+				<button class="btn btn-primary" type="submit" style="background-color: silver;">Registrar</button>
+				<a  href="/personal/listar" class="btn btn-primary" style="background-color: silver;" >Listado</a>
+			</div>
+
+		</form>
+			</section>
+
+
+
+		</main>
+		<footer th:replace="principal::footer"> </footer>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Getting Started: Serving Web Content</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+
+<body> 
+
+	<div class="container">
+		<h1 style="text-align: center;">Listado de Cliente</h1>
+		<table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+       <th scope="col">codigo</th>
+        <th scope="col">nombre</th>
+        <th scope="col">apellido</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Correo</th>
+        <th scope="col">DNI</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Direcion</th>
+        <th scope="col">Distrito</th>
+    
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="cli : ${lstCli}">
+	       <td th:text="${cli.idcliente}"></td>
+	        <td th:text="${cli.nombrecli}"></td>
+	        <td th:text="${cli.apellidocli}"></td>
+	        <td th:text="${cli.fechacli}"></td>
+	        <td th:text="${cli.correocli}"></td>
+	        <td th:text="${cli.dnicli}"></td>
+	        <td th:text="${cli.telefonocli}"></td>
+	        <td th:text="${cli.direccioncli}"></td>
+	        <td th:text="${cli.distritocli}"></td>
+	        
+	        
+		  <td>
+			      <form action="/cliente/editar" method="post">
+			       <input type="hidden" name="idcliente" th:value="${cli.idcliente}">
+			       <button type="submit" class="btn bnt-info">Eliminar</button>
+			       </form>
+		      </td>
+		      
+		      
+   
+      </tr>
+      
+    </tbody>
+  </table>
+	</div>
+
+</body>
+
+</html>
