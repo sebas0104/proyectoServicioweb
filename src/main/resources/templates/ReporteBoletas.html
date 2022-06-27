@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<!-- Include Bootstrap for styling -->
+  <link rel="stylesheet"
+        href=
+"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  
+  <!-- Include the Bootstrap Table CSS
+  for the table -->
+  <link rel="stylesheet" 
+        href=
+"https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css">
+</head>
+<body >
+  <div id="datosPersona"></div>
+
+<script>
+var requestURL = 'http://localhost:8083/api/boletas/lista';
+var request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+
+function cargarDatos()
+{
+    var datajson = request.response;
+
+    var DatosJson = JSON.parse(JSON.stringify(datajson));
+    console.log(DatosJson.alumnoUTP.length);
+    $("#Table").append('<tr><td>Nombre</td>'+
+    '<td>Apellido paterno</td>' + 
+    '<td>Edad</td>');
+    for (i = 0; i < DatosJson.alumnoUTP.length; i++){
+    $("#Table").append('<tr>' + 
+    '<td align="center" style="dislay: none;">' + DatosJson.alumnoUTP[i].nombre + '</td>'+
+    '<td align="center" style="dislay: none;">' + DatosJson.alumnoUTP[i].apePaterno + '</td>'+
+    '<td align="center" style="dislay: none;">' + DatosJson.alumnoUTP[i].edad + '</td>'+'</tr>');
+}
+}
+</script>
+<button type="button" onclick="cargarDatos()">
+Visualizar
+</button>
+ </body>
+ </html>

@@ -1,4 +1,4 @@
-package com.cibertec.edu.daw.response.http;
+package com.FunkoStore.response.http;
 
 import java.io.Serializable;
 
