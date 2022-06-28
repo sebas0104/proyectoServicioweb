@@ -1,14 +1,13 @@
 package com.FunkoStore.services;
 
-
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.FunkoStore.model.producto;
-import  com.FunkoStore.repository.ProductoDAO;
+import com.FunkoStore.model.Producto;
+import com.FunkoStore.repository.ProductoDAO;
 
 @Service
 public class ProductoServiceImpl implements ProductoService {
@@ -17,15 +16,15 @@ public class ProductoServiceImpl implements ProductoService {
 	private ProductoDAO productoRepository;
 
 	@Override
-	public List<producto> listarProductos() {
+	public List<Producto> listarProductos() {
 		// TODO Auto-generated method stub
 		return this.productoRepository.findAll();
 	}
 
 	@Override
-	public producto obtenerProducto(Long id) {
+	public Producto obtenerProducto(Long id) {
 		// TODO Auto-generated method stub
-		Optional<producto> producto = this.productoRepository.findById(id);
+		Optional<Producto> producto = this.productoRepository.findById(id);
 		if (producto.isPresent()) {
 			return producto.get();
 		}
@@ -33,10 +32,10 @@ public class ProductoServiceImpl implements ProductoService {
 	}
 
 	@Override
-	public producto guardarProducto(producto producto) {
+	public Producto guardarProducto(Producto producto) {
 		// TODO Auto-generated method stub
 		try {
-			producto guardarProducto = this.productoRepository.save(producto);
+			Producto guardarProducto = this.productoRepository.save(producto);
 			return guardarProducto;
 		} catch (Exception e) {
 			// TODO: handle exception

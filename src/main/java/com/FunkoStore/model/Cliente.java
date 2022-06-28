@@ -1,128 +1,58 @@
 package com.FunkoStore.model;
 
+import java.io.Serializable;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-
-
-@Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
 @Table(name = "tb_cliente")
-public class Cliente {
-	
+public class Cliente implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@Column(name = "cod_cli")
-	private int  idcliente;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="cod_cli")
+	Long cod_cli;
 	
-	@Column(name = "nom_cli")
-	private String nombrecli;
+	@Column(name="nom_cli")
+	String nom_cli;
 	
-	@Column(name = "ape_cli")
-	private String apellidocli;
+	@Column(name="ape_cli")
+	String ape_cli;
 	
-	@Column(name = "fec_nac_cli")
-	private String fechacli;
+	@Column(name="fec_nac_cli")
+	Date fec_nac_cli;
 	
-	@Column(name = "email_cli")
-	private String correocli;
+	@Column(name="email_cli")
+	String email_cli;
 	
-	@Column(name = "dni_cli")
-	private String dnicli;
+	@Column(name="dni_cli")
+	String dni_cli;
 	
-	@Column(name = "tel_cli")
-	private String telefonocli;
+	@Column(name="tel_cli")
+	String tel_cli;
 	
-	@Column(name = "dir_cli")
-	private String direccioncli;
+	@Column(name="dir_cli")
+	String dir_cli;
 	
-	@Column(name = "distrito")
-	private String distritocli;
-
-	public int getIdcliente() {
-		return idcliente;
-	}
-
-	public void setIdcliente(int idcliente) {
-		this.idcliente = idcliente;
-	}
-
-	public String getNombrecli() {
-		return nombrecli;
-	}
-
-	public void setNombrecli(String nombrecli) {
-		this.nombrecli = nombrecli;
-	}
-
-	public String getApellidocli() {
-		return apellidocli;
-	}
-
-	public void setApellidocli(String apellidocli) {
-		this.apellidocli = apellidocli;
-	}
-
-	public String getFechacli() {
-		return fechacli;
-	}
-
-	public void setFechacli(String fechacli) {
-		this.fechacli = fechacli;
-	}
-
-	public String getCorreocli() {
-		return correocli;
-	}
-
-	public void setCorreocli(String correocli) {
-		this.correocli = correocli;
-	}
-
-	public String getDnicli() {
-		return dnicli;
-	}
-
-	public void setDnicli(String dnicli) {
-		this.dnicli = dnicli;
-	}
-
-	public String getTelefonocli() {
-		return telefonocli;
-	}
-
-	public void setTelefonocli(String telefonocli) {
-		this.telefonocli = telefonocli;
-	}
-
-	public String getDireccioncli() {
-		return direccioncli;
-	}
-
-	public void setDireccioncli(String direccioncli) {
-		this.direccioncli = direccioncli;
-	}
-
-	public String getDistritocli() {
-		return distritocli;
-	}
-
-	public void setDistritocli(String distritocli) {
-		this.distritocli = distritocli;
-	}
-
-	@Override
-	public String toString() {
-		return "Cliente [idcliente=" + idcliente + ", nombrecli=" + nombrecli + ", apellidocli=" + apellidocli
-				+ ", fechacli=" + fechacli + ", correocli=" + correocli + ", dnicli=" + dnicli + ", telefonocli="
-				+ telefonocli + ", direccioncli=" + direccioncli + ", distritocli=" + distritocli + "]";
-	}
-	
-	
-	
-	
+	@Column(name="distrito")
+	String distrito;
 	
 }

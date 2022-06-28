@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+	<header></header>
+	<div class="container py-4">
+		<div th:if="${clientes.isEmpty()}">No hay clientes</div>
+		<table th:if="${not clientes.isEmpty()}" class="table">
+			<thead>
+				<tr>
+					<th class="col-1">cod_cli</th>
+					<th class="col-1">nom_cli</th>
+					<th class="col-1">ape_cli</th>
+					<th class="col-1">fec_nac_cli</th>
+					<th class="col-1">email_cli</th>
+					<th class="col-1">dni_cli</th>
+					<th class="col-1">tel_cli</th>
+					<th class="col-1">dir_cli</th>
+					<th class="col-1">distrito</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cliente: ${clientes}">
+					<td th:text="${cliente.cod_cli}"></td>
+					<td th:text="${cliente.nom_cli}"></td>
+					<td th:text="${cliente.ape_cli}"></td>
+					<td th:text="${cliente.fec_nac_cli}"></td>
+					<td th:text="${cliente.email_cli}"></td>
+					<td th:text="${cliente.dni_cli}"></td>
+					<td th:text="${cliente.tel_cli}"></td>
+					<td th:text="${cliente.dir_cli}"></td>
+					<td th:text="${cliente.distrito}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<footer></footer>
+
+
+</body>
+
+</html>

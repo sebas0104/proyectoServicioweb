@@ -2,15 +2,15 @@ package com.FunkoStore.services;
 
 import java.util.List;
 
-import com.FunkoStore.model.producto;
+import com.FunkoStore.model.Producto;
 
 public interface ProductoService {
 	
-	public List<producto> listarProductos();
+	public List<Producto> listarProductos();
 	
-	public producto obtenerProducto(Long id);
+	public Producto obtenerProducto(Long id);
 	
-	public producto guardarProducto(producto producto);
+	public Producto guardarProducto(Producto producto);
 	
 	public void eliminarProducto(Long id);
 }

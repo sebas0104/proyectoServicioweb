@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+	<header></header>
+	<div class="container py-4">
+		<div th:if="${boletas.isEmpty()}">No hay clientes</div>
+		<table th:if="${not clientes.isEmpty()}" class="table">
+			<thead>
+				<tr>
+					<th class="col-1">nro_bol</th>
+					<th class="col-1">cod_per</th>
+					<th class="col-1">cod_cli</th>
+					<th class="col-1">cod_tip_pag</th>
+					<th class="col-1">total</th>
+					<th class="col-1">fecha_reg</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="boleta: ${boletas}">
+					<td th:text="${boleta.nro_bol}"></td>
+					<td th:text="${boleta.cod_per}"></td>
+					<td th:text="${boleta.cod_cli}"></td>
+					<td th:text="${boleta.cod_tip_pag}"></td>
+					<td th:text="${boleta.total}"></td>
+					<td th:text="${boleta.fecha_reg}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<footer></footer>
+
+
+</body>
+
+</html>

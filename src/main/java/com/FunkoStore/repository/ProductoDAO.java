@@ -6,13 +6,13 @@ import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.FunkoStore.model.producto;
+import com.FunkoStore.model.Producto;
 
 @Repository
-public interface ProductoDAO extends CrudRepository<producto, Long>{
+public interface ProductoDAO extends CrudRepository<Producto, Long>{
 
-	public List<producto> findAll();
+	public List<Producto> findAll();
 	
-	public Optional<producto> findById(Long id);
+	public Optional<Producto> findById(Long id);
 	
 }
