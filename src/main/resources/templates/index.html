@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+	<!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+
+<body>
+	<header></header>
+	<div class="container py-4">
+		<a th:href="@{/home/nuevoProducto}">Nuevo</a>
+		<div th:if="${productos.isEmpty()}">No hay clientes</div>
+		<table th:if="${not clientes.isEmpty()}" class="table">
+			<thead>
+				<tr>
+					<th class="col-1">cod_prod</th>
+					<th class="col-1">nom_prod</th>
+					<th class="col-1">desc_prod</th>
+					<th class="col-1">cod_cat</th>
+					<th class="col-1">stock</th>
+					<th class="col-1">precio</th>
+					<th class="col-1">Ver</th>
+					<th class="col-1"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="producto: ${productos}">
+					<td th:text="${producto.cod_prod}"></td>
+					<td th:text="${producto.nom_prod}"></td>
+					<td th:text="${producto.desc_prod}"></td>
+					<td th:text="${producto.cod_cat}"></td>
+					<td th:text="${producto.stock}"></td>
+					<td th:text="${producto.precio}"></td>
+					<td><a th:href="@{/home/producto/} + ${producto.cod_prod}"><span>Ver
+								Productos</span></a></td>
+					<td><a th:href="@{/home/eliminar/} + ${producto.cod_prod}" class="btn btn-danger"><span>Eliminar</span></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<footer></footer>
+
+
+</body>
+
+</html>

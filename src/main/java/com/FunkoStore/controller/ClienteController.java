@@ -1,4 +1,4 @@
-package com.FunkoStore.controller;
+/*package com.FunkoStore.controller;
 
 import com.FunkoStore.model.*;
 import com.FunkoStore.repository.*;
@@ -59,4 +59,4 @@ public class ClienteController {
 		return "listadoCliente";
 	
 	}
-}
+}*/

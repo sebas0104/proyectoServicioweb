@@ -1,4 +1,4 @@
-package com.FunkoStore.controller;
+/*package com.FunkoStore.controller;
 import com.FunkoStore.model.*;
 import com.FunkoStore.repository.*;
 
@@ -24,7 +24,7 @@ public class ProductosController {
 	
 	@GetMapping("/cargar")
 	public String cargarpag(Model model) {
-		model.addAttribute("producto", new producto());
+		model.addAttribute("producto", new Producto());
 		model.addAttribute("lstCa",repocate.findAll());
 		return "crudproductos";
 	}
@@ -36,23 +36,23 @@ public class ProductosController {
 
 
 	@PostMapping("/grabar")
-	public String grabarpag(@ModelAttribute producto producto,Model model) {
+	public String grabarpag(@ModelAttribute Producto producto,Model model) {
 		System.out.println("Listo para grabar ");
 		System.out.println(producto);
-		repo.save(producto);// merge
+		//repo.save(producto);// merge
 		model.addAttribute("lstCa",repocate.findAll());
 		return "crudproductos";
 	}
 
 	@GetMapping("/listar")
 	public String listadodeProductos(Model model) {
-		model.addAttribute("lstPro",repo.findAll());
+		//model.addAttribute("lstPro",repo.findAll());
 		return "listadoProductos";
 	}
 		
 	
 	@PostMapping("/Actualizar")
-	public String buscarProducto(@ModelAttribute producto p, Model model) {
+	public String buscarProducto(@ModelAttribute Producto p, Model model) {
 		System.out.println(p);
 		model.addAttribute("producto",repo.findById(p.getIdproducto()));
 		model.addAttribute("lstCa",repocate.findAll());
@@ -61,7 +61,7 @@ public class ProductosController {
 	
 	
 	@PostMapping("/eliminar")
-	public String eliminarlibro(@ModelAttribute producto p,Model model) {
+	public String eliminarlibro(@ModelAttribute Producto p,Model model) {
 		System.out.println("Listo para eliminar ");
 		System.out.println(p);
 		repo.deleteById(p.getIdproducto());
@@ -74,11 +74,11 @@ public class ProductosController {
 	
 	
 	@PostMapping("/editar")
-	public String grabarpag2(@ModelAttribute producto producto,Model model) {
+	public String grabarpag2(@ModelAttribute Producto producto,Model model) {
 		System.out.println("Listo para grabar ");
 		System.out.println(producto);
 		repo.save(producto);// merge
 		model.addAttribute("lstCa",repocate.findAll());
 		return "crudproductos";
 	}
-}
+}*/

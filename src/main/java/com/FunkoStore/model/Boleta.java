@@ -1,7 +1,6 @@
 package com.FunkoStore.model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,41 +17,31 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "tb_cliente")
-public class Cliente implements Serializable{
-
+@Table(name = "tb_boleta")
+public class Boleta implements Serializable {
 	/**
-	 * 
-	 */
+	* 
+	*/
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="cod_cli")
-	Long cod_cli;
-	
-	@Column(name="nom_cli")
-	String nom_cli;
-	
-	@Column(name="ape_cli")
-	String ape_cli;
-	
-	@Column(name="fec_nac_cli")
-	Date fec_nac_cli;
-	
-	@Column(name="email_cli")
-	String email_cli;
-	
-	@Column(name="dni_cli")
-	String dni_cli;
-	
-	@Column(name="tel_cli")
-	String tel_cli;
-	
-	@Column(name="dir_cli")
-	String dir_cli;
-	
-	@Column(name="distrito")
-	String distrito;
-	
+	@Column(name = "nro_bol")
+	Long nro_bol;
+
+	@Column(name = "cod_per")
+	String cod_per;
+
+	@Column(name = "cod_cli")
+	String cod_cli;
+
+	@Column(name = "cod_tip_pag")
+	String cod_tip_pag;
+
+	@Column(name = "total")
+	double total;
+
+	@Column(name = "fecha_reg")
+	String fecha_reg;
+
 }
